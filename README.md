@@ -79,8 +79,8 @@ Para utilizarla:
     - `nroDocumento`: Número de documento del empleado (opcional)
   
 ### Consideraciones importantes:
-- Existen reglas de negocio que no están implementadas en el postman pero si en el codigo: 
-- HU001 - Alta Empleados  =  las validaciones funcionan pero no estan en el archivo Json De Postman ya que no lo especifica el TP
+-El siguiente proyecto aplica buenas practicas aplicando el patron de diseño DTO para transferir objetos entre capas , manejamos las excepciones mediante un @controllerAdvice  GlobalExceptionHandler para manejar las excepciones de forma global
+-además utilizamos validaciones  en las entidades ,  asi como tambien dejamos que cada capa se encarguie de su responsabilidad.
 
 ## Autor:
 Carlos Arteaga.
