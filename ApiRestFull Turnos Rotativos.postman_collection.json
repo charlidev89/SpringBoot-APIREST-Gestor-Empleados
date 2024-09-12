@@ -1,0 +1,693 @@
+{
+	"info": {
+		"_postman_id": "df3107f7-f7b7-43e4-a941-44421c8d5ee3",
+		"name": "ApiRestFull Turnos Rotativos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38106230"
+	},
+	"item": [
+		{
+			"name": "Empleado : Crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manuel\",\r\n  \"apellido\": \"Salgado\",\r\n  \"email\": \"manuel.samo@gmail.com\",\r\n  \"nroDocumento\": 335552678,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Crear  menor 18años  (BadRequest 400)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Man\",\r\n  \"apellido\": \"Sal\",\r\n  \"email\": \"manuel.sam@gmail.com\",\r\n  \"nroDocumento\": 33555678,\r\n  \"fechaNacimiento\": \"2023-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Crear Duplicado : (Conflict 409) mismo dni",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Man\",\r\n  \"apellido\": \"Sal\",\r\n  \"email\": \"manuel.sam@gmail.com\",\r\n  \"nroDocumento\": 335552678,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Crear Duplicado : (Conflict 409) mismo mail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manudd\",\r\n  \"apellido\": \"Salaa\",\r\n   \"email\": \"michael.johnson@gmail.com\",\r\n  \"nroDocumento\": 3213213,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado :  (BadRequest 400) Formato Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manudd\",\r\n  \"apellido\": \"Salaa\",\r\n  \"email\": \"usuario@\",\r\n  \"nroDocumento\": 3213213,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado :  (BadRequest 400) fechaIngreso es posterior al día hoy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manudd\",\r\n  \"apellido\": \"Salaa\",\r\n  \"email\": \"manuel.samo@gmail.com\",\r\n  \"nroDocumento\": 3213213,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2026-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado :  (BadRequest 400) fechaDeNacimiento posterior a hoy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manudd\",\r\n  \"apellido\": \"Salaa\",\r\n  \"email\": \"manuel.samo@gmail.com\",\r\n  \"nroDocumento\": 3213213,\r\n  \"fechaNacimiento\": \"2025-01-15\",\r\n  \"fechaIngreso\": \"2022-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado :  (BadRequest 400) Validacion Nombre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"321321\",\r\n  \"apellido\": \"Salaa\",\r\n  \"email\": \"manuel.samo@gmail.com\",\r\n  \"nroDocumento\": 3213213,\r\n  \"fechaNacimiento\": \"1999-01-15\",\r\n  \"fechaIngreso\": \"2022-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado :  (BadRequest 400) Validacion : Dni Vacio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manudd\",\r\n  \"apellido\": \"Salaa\",\r\n  \"email\": \"manuel.samo@gmail.com\",\r\n  \"nroDocumento\": \"\",\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2022-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Obtener Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Obtener Por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/empleado/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : 404 (Not Found) Obtener Por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/empleado/22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar Empleado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manuel\",\r\n  \"apellido\": \"Salgado\",\r\n  \"email\": \"emailNuevo.samo@gmail.com\",\r\n  \"nroDocumento\": 335552678,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar Empleado (Status Code: 400 Bad Request)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manuel\",\r\n  \"apellido\": \"Salgado\",\r\n  \"email\": \"emailNuevo.samo@gmail.com\",\r\n  \"nroDocumento\": 335552678,\r\n  \"fechaNacimiento\": \"2018-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar Edad Empleado (Status Code: 400 Bad Request)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manuel\",\r\n  \"apellido\": \"Salgado\",\r\n  \"email\": \"emailNuevo.samo@gmail.com\",\r\n  \"nroDocumento\": 335552678,\r\n  \"fechaNacimiento\": \"2020-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar, mismo dni (Status Code: 409  Conflict)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manuel\",\r\n  \"apellido\": \"Salgado\",\r\n  \"email\": \"emailNuevo.samo@gmail.com\",\r\n  \"nroDocumento\": 87654321,\r\n  \"fechaNacimiento\": \"1900-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar, mismo email (Status Code: 409  Conflict)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Manuel\",\r\n  \"apellido\": \"Salgado\",\r\n  \"email\": \"michael.johnson@gmail.com\",\r\n  \"nroDocumento\": 335552678,\r\n  \"fechaNacimiento\": \"1990-01-15\",\r\n  \"fechaIngreso\": \"2023-03-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar (Bad Request 400)Fecha de ingreso es posterior a hoy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nombre\": \"James\",\r\n        \"apellido\": \"Brown\",\r\n        \"email\": \"james.brown@gmail.com\",\r\n        \"nroDocumento\": 99887766,\r\n        \"fechaNacimiento\": \"1988-04-12\",\r\n        \"fechaIngreso\": \"2248-10-22\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Actualizar (Bad Request 400) nombre : validacion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"nombre\": \"!!\",\r\n        \"apellido\": \"Brown\",\r\n        \"email\": \"james.brown@gmail.com\",\r\n        \"nroDocumento\": 99887766,\r\n        \"fechaNacimiento\": \"1988-04-12\",\r\n        \"fechaIngreso\": \"2015-10-22\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empleado : Eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/empleado/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConceptoLaboral : Obtener Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/concepto-laboral",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"concepto-laboral"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConceptoLaboral :  Obtener Por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/concepto-laboral?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"concepto-laboral"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConceptoLaboral : Obtener por Nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/concepto-laboral?nombre=Turno Normal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"concepto-laboral"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Turno Normal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jornada LaboraL : Crear Jornada Laboral",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idEmpleado\": 1,\r\n  \"idConcepto\": 1,\r\n  \"fecha\": \"2023-03-03\",\r\n  \"hsTrabajadas\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/jornada",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jornada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jornada Laboral : Obtener Jornadas Laborales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jornada",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jornada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Jornada  Laboral: Obtener Jornadas Filtradas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jornada?fechaDesde=2024-09-01&fechaHasta=2024-09-30&nroDocumento=12345678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jornada"
+					],
+					"query": [
+						{
+							"key": "fechaDesde",
+							"value": "2024-09-01"
+						},
+						{
+							"key": "fechaHasta",
+							"value": "2024-09-30"
+						},
+						{
+							"key": "nroDocumento",
+							"value": "12345678"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
